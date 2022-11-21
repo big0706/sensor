@@ -58,7 +58,7 @@ public class TemperatureValues implements Serializable {
         this.id = id;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
