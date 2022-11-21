@@ -21,11 +21,12 @@ public class TemperatureValues implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     @DecimalMin(value = "-100.0", message = "The value should be between -100.0 and 100.0")
     @DecimalMax(value = "100.0",message = "The value should be between -100.0 and 100.0")
     @Digits(integer = 3,fraction = 1,message = "The value should be such, for example,in the format as 30.0")
     @Column(name = "temperature_values")
-    private double value;
+    private Double value;
 
     @Column(name = "raining")
     private boolean raining;
@@ -41,7 +42,7 @@ public class TemperatureValues implements Serializable {
     public TemperatureValues() {
     }
 
-    public TemperatureValues(double value, boolean raining, LocalDateTime currentDate) {
+    public TemperatureValues(Double value, boolean raining, LocalDateTime currentDate) {
         this.value = value;
         this.raining = raining;
         this.date = currentDate;
@@ -61,7 +62,7 @@ public class TemperatureValues implements Serializable {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
