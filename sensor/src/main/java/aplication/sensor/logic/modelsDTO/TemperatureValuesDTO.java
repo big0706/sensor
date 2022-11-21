@@ -5,11 +5,12 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 
 public class TemperatureValuesDTO {
-
+    
+    @NotNull
     @DecimalMin(value = "-100.0", message = "The value should be between -100.0 and 100.0")
     @DecimalMax(value = "100.0",message = "The value should be between -100.0 and 100.0")
     @Digits(integer = 3,fraction = 1,message = "The value should be such, for example,in the format as 30.0")
-    private double value;
+    private Double value;
 
     private boolean raining;
 
@@ -18,17 +19,17 @@ public class TemperatureValuesDTO {
     public TemperatureValuesDTO() {
     }
 
-    public TemperatureValuesDTO(int value, boolean raining, SensorDTO sensor) {
+    public TemperatureValuesDTO(Double value, boolean raining, SensorDTO sensor) {
         this.value = value;
         this.raining = raining;
         this.sensor = sensor;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
